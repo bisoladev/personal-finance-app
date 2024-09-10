@@ -1,5 +1,5 @@
-const RecurringBills = () => {
+const Recurring = () => {
   return <h1>RecurringBills</h1>;
 };
 
-export default RecurringBills;
+export default Recurring;
