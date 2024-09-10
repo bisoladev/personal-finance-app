@@ -1,5 +1,5 @@
 const Overview = () => {
-  return <div>Overview</div>;
+  return <h1>Overview</h1>;
 };
 
 export default Overview;

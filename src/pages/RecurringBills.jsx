@@ -1,5 +1,5 @@
 const RecurringBills = () => {
-  return <div>RecurringBills</div>;
+  return <h1>RecurringBills</h1>;
 };
 
 export default RecurringBills;

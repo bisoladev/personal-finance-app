@@ -1,5 +1,5 @@
 const Pots = () => {
-  return <div>Pots</div>;
+  return <h1>Pots</h1>;
 };
 
 export default Pots;
