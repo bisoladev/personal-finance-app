@@ -25,6 +25,9 @@ export default {
         colorRed: "#C94736",
         colorPurple: "#826CB0",
       },
+      backgroundImage: {
+        auth: "url('./src/assets/illustration-authentication.svg')",
+      },
     },
   },
   plugins: [tailwindcssAnimate],
