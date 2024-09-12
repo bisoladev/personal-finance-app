@@ -1,12 +1,36 @@
 import { cn } from "@/lib/utils";
 import Logo from "../assets/logo-small.svg";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { loginSchema } from "@/lib/zodSchema";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Login = () => {
+  const form = useForm({
+    resolver: zodResolver(loginSchema),
+    defaultValues: { email: "", password: "" },
+  });
+
+  function onSubmit(values) {
+    console.log(values);
+  }
+
   return (
-    <div className="bg-beige100 flex items-center h-screen pl-5">
+    <div className="bg-beige100 flex items-center h-screen md:pl-5 p-4 md:p-0">
       <div
         className={cn(
-          "bg-cover bg-auth w-[500px] h-[calc(100vh-40px)] rounded-[12px] hidden lg:flex flex-col justify-between p-8"
+          "bg-cover bg-auth w-[500px] h-[calc(100vh-40px)] rounded-[12px] hidden lg:flex flex-col justify-between p-7"
         )}
       >
         <img src={Logo} alt="Finance" className="w-fit" />
@@ -20,8 +44,59 @@ const Login = () => {
           </p>
         </div>
       </div>
-      <div className="bg-white mx-auto">
-        <h4 className="text-preset-1">Login</h4>
+      <div className="bg-white mx-auto max-w-[560px] min-h-[422px] w-full p-8 rounded-xl">
+        <h4 className="text-preset-1 text-grey900 mb-8">Login</h4>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-4 text-grey500"
+          >
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="!my-8">
+              <Button className="w-full" type="submit">
+                Login
+              </Button>
+            </div>
+            <p className="text-center">
+              Need to create an account?{" "}
+              <span>
+                <Link
+                  to="/register"
+                  className="underline text-grey900 text-preset-4-bold"
+                >
+                  Sign up
+                </Link>
+              </span>
+            </p>
+          </form>
+        </Form>
       </div>
     </div>
   );
