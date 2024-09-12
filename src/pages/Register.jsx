@@ -38,7 +38,7 @@ const Register = () => {
     <div className="bg-beige100 flex lg:items-center h-screen lg:pl-5">
       <div
         className={cn(
-          "bg-cover bg-auth w-[500px] h-[calc(100vh-40px)] rounded-[12px] hidden lg:flex flex-col justify-between p-7"
+          "bg-cover bg-auth w-[500px] h-[calc(100vh-40px)] xl:flex-shrink-0 rounded-[12px] hidden lg:flex flex-col justify-between p-7"
         )}
       >
         <img src={Logo} alt="Finance" className="w-fit" />
@@ -59,7 +59,7 @@ const Register = () => {
         </div>
         <div className="flex h-[calc(100vh-80px)] items-center p-4">
           <div className="bg-white mx-auto max-w-[560px] min-h-[422px] w-full p-8 rounded-xl">
-            <h4 className="text-preset-1 text-grey900 mb-8">Login</h4>
+            <h4 className="text-preset-1 text-grey900 mb-8">Sign Up</h4>
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}

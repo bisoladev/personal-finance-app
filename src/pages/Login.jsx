@@ -37,7 +37,7 @@ const Login = () => {
     <div className="bg-beige100 flex lg:items-center h-screen lg:pl-5">
       <div
         className={cn(
-          "bg-cover bg-auth w-[500px] h-[calc(100vh-40px)] rounded-[12px] hidden lg:flex flex-col justify-between p-7"
+          "bg-cover bg-auth w-[500px] h-[calc(100vh-40px)] xl:flex-shrink-0 rounded-[12px] hidden lg:flex flex-col justify-between p-7"
         )}
       >
         <img src={Logo} alt="Finance" className="w-fit" />
