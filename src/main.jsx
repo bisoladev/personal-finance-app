@@ -32,9 +32,9 @@ const router = createBrowserRouter([
   {
     path: "app",
     element: <HomeLayout />,
+    errorElement: <Error />,
     children: [
       { path: "overview", element: <Overview /> },
-      { path: "register", element: <Register /> },
       { path: "transactions", element: <Transactions /> },
       { path: "budgets", element: <Budgets /> },
       { path: "pots", element: <Pots /> },
@@ -43,6 +43,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: "login", element: <Login />, errorElement: <Error /> },
+  { path: "register", element: <Register />, errorElement: <Error /> },
 ]);
 
 createRoot(document.getElementById("root")).render(

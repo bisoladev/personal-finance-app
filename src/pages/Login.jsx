@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import Logo from "../assets/logo-small.svg";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { loginSchema } from "@/lib/zodSchema";
