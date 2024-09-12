@@ -34,15 +34,7 @@ export default [
         "warn",
         { allowConstantExport: true },
       ],
+      "react/prop-types": "off",
     },
-    overrides: [
-      {
-        files: ["**/components/ui/*.jsx"],
-        rules: {
-          "react/prop-types": [2, { ignore: ["className"] }],
-          "react-refresh/only-export-components": "off",
-        },
-      },
-    ],
   },
 ];
