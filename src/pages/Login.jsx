@@ -13,10 +13,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-// import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import EyeOff from "../assets/icon-hide-password.svg?react";
+import EyeOn from "../assets/icon-show-password.svg?react";
 
 const Login = () => {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(true);
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: "", password: "" },
@@ -25,6 +29,10 @@ const Login = () => {
   function onSubmit(values) {
     console.log(values);
   }
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   return (
     <div className="bg-beige100 flex lg:items-center h-screen lg:pl-5">
@@ -78,9 +86,19 @@ const Login = () => {
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <div className="flex relative items-center">
+                          <Input
+                            {...field}
+                            type={isPasswordVisible ? "text" : "password"}
+                          />
+                          <button
+                            onClick={togglePasswordVisibility}
+                            className="absolute right-4 cursor-pointer"
+                          >
+                            {isPasswordVisible ? <EyeOn /> : <EyeOff />}
+                          </button>
+                        </div>
                       </FormControl>
-
                       <FormMessage />
                     </FormItem>
                   )}
