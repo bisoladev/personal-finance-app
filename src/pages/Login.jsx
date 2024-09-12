@@ -31,7 +31,7 @@ const Login = () => {
   }
 
   const togglePasswordVisibility = () => {
-    setIsPasswordVisible(!isPasswordVisible);
+    setIsPasswordVisible((prevS) => !prevS);
   };
 
   return (
@@ -68,11 +68,11 @@ const Login = () => {
                 <FormField
                   control={form.control}
                   name="email"
-                  render={({ field }) => (
+                  render={({ field, fieldState }) => (
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input {...field} />
+                        <Input {...field} error={fieldState.error} />
                       </FormControl>
 
                       <FormMessage />
@@ -82,14 +82,16 @@ const Login = () => {
                 <FormField
                   control={form.control}
                   name="password"
-                  render={({ field }) => (
+                  render={({ field, fieldState }) => (
                     <FormItem>
                       <FormLabel>Password</FormLabel>
                       <FormControl>
                         <div className="flex relative items-center">
                           <Input
                             {...field}
+                            error={fieldState.error}
                             type={isPasswordVisible ? "text" : "password"}
+                            autoComplete="off"
                           />
                           <button
                             onClick={togglePasswordVisibility}
